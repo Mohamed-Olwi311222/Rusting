@@ -1,2 +1,2 @@
 # Rusting
-Getting start with rust programming language
+Getting started with rust programming language
