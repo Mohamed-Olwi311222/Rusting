@@ -16,4 +16,12 @@ fn main() {
     println!("first month is {}", first);
     let multi = [3; 5];                 //an array with 5 elements with value 3 repeated in them
     println!("multi[4] = {}", multi[4]);
+    //expression and statements
+    let x = 5 + 3;  //5 + 3 is an expression
+    let statement= {
+        let expression = 3;
+        expression+1
+    };
+    println!("x is {x}");
+    println!("statement variable is {}", statement);
 }
