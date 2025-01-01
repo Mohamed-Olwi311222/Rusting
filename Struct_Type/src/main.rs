@@ -6,6 +6,8 @@ struct User{
     email: String,
     sign_in_count: u64
 }
+//tuple struct
+struct color(i32, i32, i32);
 fn main() {
     let user1 = User{
         active: true,
@@ -30,6 +32,24 @@ fn main() {
     println!("{}", email);
     println!("user3 sigin in count is {}", user3.sign_in_count);
     // println!("{}", user_name); //illegal as build_user took the ownership of it
+
+    /*Creating Instances from Other Instances with Struct Update Syntax */
+    let user4 = User{
+        active: user3.active,
+        user_name: user3.user_name,         //user3,user_name ownership moved here
+        email: String::from("anotheremail@gmail.com"),
+        sign_in_count: 10
+    };
+    // println!("{}", user3.user_name); illegal as user4.user_name took its ownership
+    let user5 = User{
+        email:String::from("anotheremail2@gmail.com"),
+        ..user2     //user5 took the owenership of the rest of the struct of user4
+    };
+    // print!("{}", user2.user_name); illeagl as user5 took its ownership
+
+    /*---------tuple struct---------- */
+    let black = color(0, 0 ,0);
+    println!("{}", black.0);
 }
 fn build_user(email: String, user_name: String)-> User{
     User {
